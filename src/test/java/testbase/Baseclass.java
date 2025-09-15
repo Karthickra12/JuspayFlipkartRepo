@@ -1,15 +1,17 @@
 package testbase;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-import org.apache.commons.text.RandomStringGenerator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 
 public class Baseclass {
@@ -44,6 +46,19 @@ public class Baseclass {
 		}
 	}
 	
+	@AfterSuite
+    public void openReport() {
+        try {
+            File htmlFile = new File("test-output/emailable-report.html");
+            if (htmlFile.exists()) {
+                Desktop.getDesktop().browse(htmlFile.toURI());
+            } else {
+                System.out.println("Report file not found!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 	
 
 }

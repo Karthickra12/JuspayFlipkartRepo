@@ -6,8 +6,9 @@
       <class name="testcases.Productserach">
         <methods>
           <include name="registertests"/>
-          <include name="Teardown"/>
+          <include name="openReport"/>
           <include name="setup"/>
+          <include name="Teardown"/>
         </methods>
       </class> <!-- testcases.Productserach -->
     </classes>

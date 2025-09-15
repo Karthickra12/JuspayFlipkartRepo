@@ -62,8 +62,14 @@ public class Loginpage extends Basepage {
 		System.out.println("Signin page displayed");
 	}
 	
+	public void gettitle() {
+		String title = driver.getTitle();
+		System.out.println("Title of the page: "+ title);
+
+	}
+	
 	public void emailenter() {
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[@type='text']")));
+		wait.until(ExpectedConditions.elementToBeClickable(emailfield));
 		emailfield.sendKeys("karthikijay234@gmail.com");
 		continuebtn.click();
 		 wait.until(ExpectedConditions.refreshed(
